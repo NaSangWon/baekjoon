@@ -1,0 +1,29 @@
+#include <stdio.h>
+
+int main() {
+	int t;
+
+	scanf("%d", &t);
+
+	int *answer = (int *)malloc(sizeof(int)* 1000000);
+	int index = 0;
+
+	int **ab = (int **)malloc(sizeof(int*)* 1000000);
+
+	for (int i = 0; i < 1000000; i++)
+		ab[i] = (int*)malloc(sizeof(int)* 2);
+
+	for (int i = 0; i < t; i++) {
+		int a, b;
+		scanf("%d %d", &a, &b);
+		answer[index] = a + b;
+		ab[index][0] = a;
+		ab[index++][1] = b;
+	}
+
+	for (int i = 0; i < index; i++) {
+		printf("Case #%d: %d + %d = %d\n", i + 1, ab[i][0], ab[i][1], answer[i]);
+	}
+
+	return 0;
+}
