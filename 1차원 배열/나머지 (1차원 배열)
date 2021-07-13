@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+	int nums[10];
+	int resultsLog[43] = { 0 };
+	int countDiffrent = 0;
+
+	for (int i = 0; i < 10; i++)
+		scanf("%d", &nums[i]);
+
+	for (int i = 0; i < 10; i++) {
+		resultsLog[nums[i] % 42] = 1;
+	}
+
+	for (int i = 0; i < 43; i++) {
+		if (resultsLog[i] != 0)
+			countDiffrent++;
+	}
+
+	printf("%d\n", countDiffrent);
+
+	return 0;
+}
