@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+int main() {
+	int size;
+
+	scanf("%d", &size);
+
+	double* arr = (double*)malloc(sizeof(double)* size);
+
+	for (int i = 0; i < size; i++)
+		scanf("%lf", &arr[i]);
+
+	double max = 0;
+
+	for (int i = 0; i < size; i++) {
+		if (max < arr[i])
+			max = arr[i];
+	}
+
+	for (int i = 0; i < size; i++) {
+		arr[i] = arr[i] / max * 100;
+	}
+
+	double sum = 0.0;
+
+	for (int i = 0; i < size; i++) {
+		sum += arr[i];
+	}
+
+	printf("%f\n", sum / (double)size);
+
+	return 0;
+}
