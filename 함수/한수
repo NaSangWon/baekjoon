@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int isItHs(int n);
+
+int main() {
+	int hscount = 0;
+	int n;
+
+	scanf("%d", &n);
+
+	for (int i = 1; i <= n; i++) {
+		if (isItHs(i) == 1)
+			hscount++;
+	}
+
+	printf("%d\n", hscount);
+
+	return 0;
+}
+
+int isItHs(int n) {
+	if (n < 100)
+		return 1;
+	else {
+		int hud, ten, one;
+		hud = n / 100;
+		ten = n / 10 % 10;
+		one = n % 10;
+		if (hud - ten == ten - one)
+			return 1;
+		else
+			return -1;
+	}
+}
