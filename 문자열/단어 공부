@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+	// 소문자 - 대문자 = 32
+
+	int aski[91] = {0};
+	char input[1000000];
+
+	scanf("%s", input);
+
+	for (int i = 0; input[i] != '\0'; i++) {
+		int temp = input[i];
+		if (temp >= 97)
+			temp = temp - 32;
+		aski[temp]++;
+	}
+
+	int max = 0;
+	for (int i = 0; i < 91; i++) {
+		if (max < aski[i])
+			max = aski[i];
+	}
+
+	int countSame = 0;
+	for (int i = 0; i < 91; i++) {
+		if (max == aski[i])
+			countSame++;
+	}
+
+	if (countSame >= 2)
+		printf("?");
+	else {
+		for (int i = 0; i < 91; i++) {
+			if (max == aski[i])
+				printf("%c", i);
+		}
+	}
+
+	return 0;
+}
