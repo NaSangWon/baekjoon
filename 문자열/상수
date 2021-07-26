@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+	char input[8];
+	char reverse[8];
+	int firstNum;
+	int lastNum;
+
+	scanf("%[^\n]", input);
+
+	for (int i = 0; i < 7; i++) {
+		reverse[i] = input[6 - i];
+	}
+
+	firstNum = (reverse[0] - '0') * 100 + (reverse[1] - '0') * 10 + (reverse[2] - '0');
+	lastNum = (reverse[4] - '0') * 100 + (reverse[5] - '0') * 10 + (reverse[6] - '0');
+
+	if (firstNum > lastNum)
+		printf("%d", firstNum);
+	else
+		printf("%d", lastNum);
+
+	return 0;
+}
