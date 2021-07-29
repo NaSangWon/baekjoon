@@ -1,0 +1,27 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char input[100];
+	int count = 0;
+
+	scanf("%s", input);
+
+	for (int i = 0; input[i] != '\0';) {
+		char temp[3] = "\0";
+		temp[0] = input[i], temp[1] = input[i + 1];
+		
+		if (!strcmp(temp, "c=") || !strcmp(temp, "c-") || !strcmp(temp, "d-") || !strcmp(temp, "lj") || !strcmp(temp, "nj") || !strcmp(temp, "s=") || !strcmp(temp, "z="))
+			count++, i += 2;
+		else if (!strcmp(temp, "dz") && input[i + 2] == '=') { 
+			count++, i += 3;
+		}
+		else {
+			count++, i++;
+		}			
+	}
+
+	printf("%d", count);
+
+	return 0;
+}
