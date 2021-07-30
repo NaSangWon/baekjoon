@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	int N;
+	int groupCount = 0;
+
+	scanf("%d", &N);
+
+	for (int i = 0; i < N; i++) {
+		char s[101];
+		int len;
+
+		scanf("%s", s);
+		len = strlen(s);
+
+		if (isGroup(s, len))
+			groupCount++;
+	}
+
+	printf("%d", groupCount);
+
+	//printf("%d\n", isGroup("aba", 3));
+
+	return 0;
+}
+
+int isGroup(char str[], int len) {
+	int alphabet[26] = { 0, };
+	for (int j = 0; j < len;) {
+		int index = str[j] - 97;
+		if (!alphabet[index]) {
+			do {
+				j++;
+			} while (str[j] == (char)(index + 97));
+		}
+		else {
+			return 0;
+		}
+		alphabet[index] = 1;
+	}
+	return 1;
+}
