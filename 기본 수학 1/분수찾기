@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+int main() {
+	int X;
+	int lineNum = 1;
+	int sum = 1;
+	int beforeXLineNum = 1;
+
+	scanf("%d", &X);
+
+	if (X == 1)
+		;
+	else {
+		for (int i = 2;; i++) {
+			lineNum++;
+			sum += i;
+			if (sum >= X) {
+				break;
+			}
+			beforeXLineNum = sum;
+		}
+	}	
+
+	int parent = 1, child = 1;
+
+	if (lineNum % 2) {
+		child = lineNum;
+		parent = 1;
+	}
+	else {
+		parent = lineNum;
+		child = 1;
+	}
+
+	if (lineNum % 2) {
+		for (int i = beforeXLineNum + 1; i < X; i++) {
+			child--;
+			parent++;
+		}
+	}
+	else {
+		for (int i = beforeXLineNum + 1; i < X; i++) {
+			parent--;
+			child++;				
+		}
+	}
+
+	printf("%d/%d", child, parent);
+
+	return 0;
+}
