@@ -1,0 +1,14 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int A, B, V;
+	int height = 0;
+	int day = 0;
+
+	scanf("%d %d %d", &A, &B, &V);
+
+	printf("%.f\n", ceil((double)(V - A) / (double)(A - B)) + 1.0);
+
+	return 0;
+}
