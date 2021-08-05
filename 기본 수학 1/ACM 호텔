@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+	int T;
+
+	scanf("%d", &T);
+
+	for (int i = 0; i < T; i++) {
+		int H, W, N;
+
+		scanf("%d %d %d", &H, &W, &N);
+
+		int Y, X;
+
+		if (N % H == 0)
+			Y = H;
+		else
+			Y = N % H;
+
+		X = ceil((double) N / (double) H);
+
+		//printf("Y : %d X: %d\n", Y, X);
+
+		if (X > 9)
+			printf("%d%d\n", Y, X);
+		else
+			printf("%d0%d\n", Y, X);
+	}
+
+	return 0;
+}
