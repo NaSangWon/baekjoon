@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int getNum(int n) {
+	int count = n;
+	for (int y = 0; y * 5 <= n; y++) {
+		for (int x = 0; x * 3 <= (n - y * 5); x++) {
+			if (3 * x + 5 * y == n && count > x + y) {
+				count = x + y;
+			}
+		}
+	}
+	if (count == n)
+		return -1;
+	else
+		return count;
+}
+
+int main() {
+	int N;
+
+	scanf("%d", &N);
+
+	printf("%d\n", getNum(N));
+
+	return 0;
+}
